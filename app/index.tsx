@@ -5,6 +5,7 @@ import { Link } from "expo-router";
 type RGBString = `rgb(${number}, ${number}, ${number})`
 const spinThemeColor = 'rgb(0, 255, 106)';
 const niceRed = 'rgb(237, 52, 52)';
+const blue = 'rgb(43, 100, 255)';
 function rgbToRGBA(s: RGBString, alpha: number) {
   return ('rgba' + s.slice(3, -1) + `, ${alpha})`);
 }
@@ -66,13 +67,39 @@ export default function Index() {
           </BaiJamjureeLightItalicText>
         </View>
       </View>
+      <BaiJamjureeLightText style={{ fontSize: 15 }}>by tokaa</BaiJamjureeLightText>
       <View style={{
-        flexDirection: 'row'
+        flexDirection: 'row',
+        gap: 10
       }}>
         <Link href={"/privacy"}>
-          <BasicButton text="Privacy Policy" accentColor={niceRed}/>
+          <BasicButton text="Privacy Policy" accentColor={niceRed} />
+        </Link>
+        <Link href={"/termsofuse"}>
+          <BasicButton text="Terms of Use" accentColor={blue} />
         </Link>
       </View>
+      <BaiJamjureeRegularText style={{ fontSize: 14 }}>
+        {"Many in-game sounds are from "}
+        <Link href="https://freesound.org/people/rhodesmas/">
+          <BaiJamjureeBoldText style={{ fontSize: 18, color: niceRed, textDecorationLine: 'underline' }}>
+            {"rhodesmas"}
+          </BaiJamjureeBoldText>
+        </Link>
+        {", which are free and without limitation! Really great sounds by him."}
+      </BaiJamjureeRegularText>
+      <BaiJamjureeLightText style={{fontSize: 12}}>
+        {"I hope you enjoy Spin!, I think it's kinda cool, maybe."} 
+      </BaiJamjureeLightText>
+      <BaiJamjureeLightText style={{fontSize: 12}}>
+        {"Contact: "}
+        <Link href={"https://github.com/tokaa1"}>
+          <BaiJamjureeBoldText style={{fontSize: 14, color: blue}}>
+            {"GitHub"}
+          </BaiJamjureeBoldText>
+        </Link>
+        {" or email (tokaa1@proton.me) for any reason at all!"}
+      </BaiJamjureeLightText>
     </View>
   );
 }
