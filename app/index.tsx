@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleProp, Text, TextStyle, View, ViewStyle } from "react-native";
 import { useFonts } from 'expo-font';
 import { Link } from "expo-router";
+import Head from "expo-router/head";
 
 type RGBString = `rgb(${number}, ${number}, ${number})`
 const spinThemeColor = 'rgb(0, 255, 106)';
@@ -27,7 +28,15 @@ export default function Index() {
   if (!fontsLoaded)
     return <View style={{ flex: 1, backgroundColor: "#0a0a0a" }} />
 
-  return (
+  return <>
+    <Head>
+      <title>Spin!</title>
+      <meta content="Spin!" property="og:title" />
+      <meta content="Master spinning your phone!" property="og:description" />
+      <meta content="https://spin.nightly.pw" property="og:url" />
+      <meta content="https://spin.nightly.pw/favicon.ico" property="og:image"></meta>
+      <meta content="#00FF6A" data-react-helmet="true" name="theme-color" />
+    </Head>
     <View
       style={{
         flex: 1,
@@ -65,7 +74,7 @@ export default function Index() {
           alignItems: 'flex-start'
         }}>
           <BaiJamjureeBoldText style={{ fontSize: 50, color: spinThemeColor }}>
-            {"Spin!?"}
+            {"Spin!"}
           </BaiJamjureeBoldText>
           <BaiJamjureeLightItalicText style={{ fontSize: 25 }}>
             {"Master spinning your phone!"}
@@ -128,7 +137,7 @@ export default function Index() {
         {" or email (tokaa1@proton.me) for any reason at all!"}
       </BaiJamjureeLightText>
     </View>
-  );
+  </>;
 }
 
 function ImagePreview({imageSrc, text}: {imageSrc: any, text: string}) {
