@@ -115,7 +115,7 @@ export default function Index() {
             {"rhodesmas"}
           </BaiJamjureeBoldText>
         </Link>
-        {", which are free and without limitation! Really great sounds by him."}
+        {", which are free and without limitation. Really good sounds by him."}
       </BaiJamjureeRegularText>
       <BaiJamjureeLightText style={{fontSize: 8, opacity: 0.8}}>
         {"Contact: "}
