@@ -6,6 +6,9 @@ type RGBString = `rgb(${number}, ${number}, ${number})`
 const spinThemeColor = 'rgb(0, 255, 106)';
 const niceRed = 'rgb(237, 52, 52)';
 const blue = 'rgb(43, 100, 255)';
+const ios = 'rgb(20, 154, 250)';
+const android = 'rgb(0, 175, 64)'
+const orange = 'rgb(254, 178, 0)';
 function rgbToRGBA(s: RGBString, alpha: number) {
   return ('rgba' + s.slice(3, -1) + `, ${alpha})`);
 }
@@ -31,8 +34,9 @@ export default function Index() {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: '#0a0a0a',
-        gap: 30,
-        overflow: 'scroll'
+        gap: 14,
+        overflow: 'scroll',
+        padding: 40,
       }}
     >
       <View style={{
@@ -67,10 +71,35 @@ export default function Index() {
           </BaiJamjureeLightItalicText>
         </View>
       </View>
-      <BaiJamjureeLightText style={{ fontSize: 15 }}>by tokaa</BaiJamjureeLightText>
+      <BaiJamjureeLightItalicText style={{fontSize: 16, marginTop: -20, color: orange }}>
+        {"\"It's pretty fun, just look!\"\n- tokaa"}
+      </BaiJamjureeLightItalicText>
+      <View style={{flexDirection: 'row', gap: 10, transform: 'scale(1.25)'}}>
+        <Link href="https://apps.apple.com/us/app/spin/id6743348041">
+          <BasicButton text="Play on iOS" accentColor={ios}/>
+        </Link>
+        <BasicButton text="Google Play coming soon..." accentColor={android} style={{pointerEvents: 'none', opacity: 0.4}} fontSize={10}/>
+      </View>
+      <View style={{flexDirection: 'row'}}>
+        <ImagePreview 
+          imageSrc={require('../assets/images/qmark.png')} 
+          text={`\"spin phone, see speed & combo!!!\"`}
+        />
+        <ImagePreview 
+          imageSrc={require('../assets/images/levels.png')} 
+          text={`\"look, we got levels !!\"`}
+        />
+        <ImagePreview 
+          imageSrc={require('../assets/images/milestone100.png')} 
+          text={`\"wow, this guy hit spin level 100...\"`}
+        />
+      </View>
+      <BaiJamjureeLightText style={{fontSize: 12}}>
+        {"I hope you enjoy Spin!, I think it's kinda cool, maybe."} 
+      </BaiJamjureeLightText>
       <View style={{
         flexDirection: 'row',
-        gap: 10
+        gap: 10,
       }}>
         <Link href={"/privacy"}>
           <BasicButton text="Privacy Policy" accentColor={niceRed} />
@@ -79,22 +108,19 @@ export default function Index() {
           <BasicButton text="Terms of Use" accentColor={blue} />
         </Link>
       </View>
-      <BaiJamjureeRegularText style={{ fontSize: 14 }}>
+      <BaiJamjureeRegularText style={{ fontSize: 8, opacity: 0.8 }}>
         {"Many in-game sounds are from "}
         <Link href="https://freesound.org/people/rhodesmas/">
-          <BaiJamjureeBoldText style={{ fontSize: 18, color: niceRed, textDecorationLine: 'underline' }}>
+          <BaiJamjureeBoldText style={{ fontSize: 9, color: niceRed, textDecorationLine: 'underline' }}>
             {"rhodesmas"}
           </BaiJamjureeBoldText>
         </Link>
         {", which are free and without limitation! Really great sounds by him."}
       </BaiJamjureeRegularText>
-      <BaiJamjureeLightText style={{fontSize: 12}}>
-        {"I hope you enjoy Spin!, I think it's kinda cool, maybe."} 
-      </BaiJamjureeLightText>
-      <BaiJamjureeLightText style={{fontSize: 12}}>
+      <BaiJamjureeLightText style={{fontSize: 8, opacity: 0.8}}>
         {"Contact: "}
         <Link href={"https://github.com/tokaa1"}>
-          <BaiJamjureeBoldText style={{fontSize: 14, color: blue}}>
+          <BaiJamjureeBoldText style={{fontSize: 9, color: blue}}>
             {"GitHub"}
           </BaiJamjureeBoldText>
         </Link>
@@ -102,6 +128,20 @@ export default function Index() {
       </BaiJamjureeLightText>
     </View>
   );
+}
+
+function ImagePreview({imageSrc, text}: {imageSrc: any, text: string}) {
+  return <View style={{gap: 4, maxWidth: 200, alignItems: 'center', justifyContent: 'center', padding: 10}}>
+    <Image source={imageSrc} style={{
+      height: 400,
+      width: 184.82,
+      resizeMode: 'contain',
+      aspectRatio: 1792/828
+    }}/>
+    <BaiJamjureeLightItalicText style={{fontSize: 14}}>
+      {text}
+    </BaiJamjureeLightItalicText>
+  </View>
 }
 
 function BasicButton({ text, style, fontSize = 20, onPress, accentColor = spinThemeColor, textColor = accentColor, glowLevel = 5 }: { text: string, style?: StyleProp<ViewStyle>, fontSize?: number, onPress?: () => void, accentColor?: RGBString, textColor?: string, glowLevel?: number }) {
