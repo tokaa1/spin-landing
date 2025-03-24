@@ -95,7 +95,7 @@ export default function Index() {
         />
       </View>
       <BaiJamjureeLightText style={{fontSize: 12}}>
-        {"I hope you enjoy Spin!, I think it's kinda cool, maybe."} 
+        {"Come play today, phone spinning is fun!"} 
       </BaiJamjureeLightText>
       <View style={{
         flexDirection: 'row',
