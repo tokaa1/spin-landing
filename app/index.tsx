@@ -31,11 +31,12 @@ export default function Index() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
         backgroundColor: '#0a0a0a',
         gap: 14,
         overflow: 'scroll',
+        overflowY: 'scroll',
         padding: 40,
       }}
     >
